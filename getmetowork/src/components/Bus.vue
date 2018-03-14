@@ -10,7 +10,7 @@
 
 <script>
 import axios from 'axios'
-import { BUS_KEY } from '@/constants'
+import { API, HARLEM, IRVING } from '@/constants'
 
 export default {
     name: "Bus",
@@ -25,14 +25,18 @@ export default {
     },
     methods: {
         getBusses: function(){
-            console.log('getBusses')
-            console.log('BUS_KEY', BUS_KEY)
+            console.log('HARLEM:', HARLEM)
+
             return; ////REMOVE WHEN READY
 
-            axios.get("https://can-cors.herokuapp.com/http://www.ctabustracker.com/bustime/api/v2/getpredictions?key=5kQ32nKLH7YSWPBxsw4kX7q7h&rt=80&stpid=14550&format=json") //90(harlem), 7861(belmont), 1813(montrose) wb: rt-78(stpid: 14813)
+            axios.get(`${API.BUS.URL}?key=${API.BUS.KEY}&rt=${HARLEM.ROUTE}&stpid=${HARLEM.DIRECTION.SOUTHBOUND}&format=json`)
+            //axios.get(`${API.BUS.URL}?key=${API.BUS.KEY}&rt=${IRVING.ROUTE}&stpid=${IRVING.DIRECTION.WESTBOUND}&format=json`) 
             .then((response) => {
-                console.log(response.data["bustime-response"])
-                this.nextBus = response.data["bustime-response"].prd;
+                let data = response.data["bustime-response"]
+                console.log(data)
+                this.nextBus = data.prd;
+                this.transitError = (data.error ? data.error[0].msg : '') 
+                console.log('this.transitError', this.transitError)
             }, (error) => {
                 this.transitError = error;
                 console.log('myerror: ', this.transitError)

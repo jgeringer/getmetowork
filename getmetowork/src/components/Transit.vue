@@ -1,6 +1,6 @@
 <template>
   <div>
-      Transit, we'll bring bus in here, this will be the hub, get it?
+      Busses:
       <bus></bus>
   </div>
 </template>
