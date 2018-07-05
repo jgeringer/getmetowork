@@ -26,10 +26,10 @@ export default {
     methods: {
         getBusses: function(){
             console.log('HARLEM:', HARLEM)
-
+            console.warn(`${API.CTA_BUS.URL}?key=${API.BUS.KEY}&rt=${HARLEM.ROUTE}&stpid=${HARLEM.DIRECTION.SOUTHBOUND}&format=json`)
             return; ////REMOVE WHEN READY
 
-            axios.get(`${API.BUS.URL}?key=${API.BUS.KEY}&rt=${HARLEM.ROUTE}&stpid=${HARLEM.DIRECTION.SOUTHBOUND}&format=json`)
+            axios.get(`${API.CTA_BUS.URL}?key=${API.CTA_BUS.KEY}&rt=${HARLEM.ROUTE}&stpid=${HARLEM.DIRECTION.SOUTHBOUND}&format=json`)
             //axios.get(`${API.BUS.URL}?key=${API.BUS.KEY}&rt=${IRVING.ROUTE}&stpid=${IRVING.DIRECTION.WESTBOUND}&format=json`) 
             .then((response) => {
                 let data = response.data["bustime-response"]

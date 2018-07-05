@@ -1,11 +1,25 @@
 export const API = {
-  BUS: {
-    KEY: '5kQ32nKLH7YSWPBxsw4kX7q7h',
-    URL: 'https://can-cors.herokuapp.com/http://www.ctabustracker.com/bustime/api/v2/getpredictions'
-  }
+    CTA_BUS: {
+        KEY: '5kQ32nKLH7YSWPBxsw4kX7q7h',
+        URL: 'https://can-cors.herokuapp.com/http://www.ctabustracker.com/bustime/api/v2/getpredictions'
+    },
+    PACE_BUS: {
+        KEY: '',
+        URL: ''
+    },
+    CTA_TRAIN: {
+        KEY: '',
+        URL: ''
+    }
 }
 
-// TESTING: 24H -
+export const DIRECTIONS = [
+    "Northbound",
+    "Southbound",
+    "Eastbound",
+    "Westbound"
+]
+
 export const IRVING = {
   ROUTE: 80,
   DIRECTION: {
