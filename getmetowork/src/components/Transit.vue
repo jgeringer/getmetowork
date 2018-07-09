@@ -2,11 +2,14 @@
   <div>
       Busses:
       <bus></bus>
+
+      <navigation></navigation>
   </div>
 </template>
 
 <script>
     import Bus from '@/components/Bus'
+    import Navigation from '@/components/Navigation'
 
     export default {
         name: 'Transit',
@@ -16,6 +19,7 @@
             }
         },
         components: {
+            Navigation,
             Bus
         }
     }
